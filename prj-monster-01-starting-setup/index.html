@@ -12,6 +12,7 @@
     <script src="https://unpkg.com/vue@3" defer></script>
     <script src="app.js" defer></script>
   </head>
+
   <body>
     <header>
       <h1>Monster Slayer</h1>
@@ -46,7 +47,24 @@
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
-        <ul></ul>
+        <ul>
+          <li v-for="logMessage in logMessages">
+            <span
+              :class="{'log--player': logMessage.actionBy === 'player','log--monster': logMessage.actionBy === 'monster'}"
+              >{{ logMessage.actionBy === 'player' ? 'Player' :
+              'Monster'}}</span
+            >
+            <span v-if="logMessage.actionType === 'heal'"
+              >heals himself for
+              <span class="log--heal">{{ logMessage.actionValue}}</span>
+            </span>
+            <span v-else
+              >attacks and deals<span class="log--damage"
+                >{{ logMessage.actionValue}}</span
+              ></span
+            >
+          </li>
+        </ul>
       </section>
     </div>
   </body>
