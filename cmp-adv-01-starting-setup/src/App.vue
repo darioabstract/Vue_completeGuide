@@ -12,11 +12,9 @@
 
 <script>
 import TheHeader from "./components/TheHeader.vue";
-import TheHeader from "./components/TheHeader.vue";
-import TheHeader from "./components/TheHeader.vue";
 export default {
   components: {
-    TheHeader: TheHeader,
+    TheHeader,
   },
   data() {
     return {
@@ -30,7 +28,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 html {
   font-family: sans-serif;
 }
